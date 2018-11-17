@@ -50,7 +50,7 @@ class Home extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if(this.state.isLoggedIn) {
       this.setState({ modalStatus: true}, () => {
           console.log(this.state.modalStatus);

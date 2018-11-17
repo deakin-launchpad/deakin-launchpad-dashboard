@@ -27,16 +27,8 @@ class Modal extends Component {
       <div>
         <div ref={Modal => { this.Modal = Modal; }} id="modal1" className="modal">
           <div className="modal-content">
-            <h4>{this.state.modalHeader}</h4>
-            <p>{this.state.modalDescription}</p>
-          </div>
-          <div className="modal-footer">
-            <a href="#" className="modal-close waves-effect waves-red btn-flat">
-              Disagree
-            </a>
-            <a href="#" className="modal-close waves-effect waves-green btn-flat">
-              Agree
-            </a>
+            <h4>{this.props.data_modal.title}</h4>
+            <p>{this.props.data_modal.description}</p>
           </div>
         </div>
       </div>

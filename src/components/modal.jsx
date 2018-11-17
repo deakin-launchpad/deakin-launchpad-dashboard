@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import M from "materialize-css";
 
 class Modal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalHeader: 'Fill Modal title here!',
-      modalDescription: 'Modal Description goes here',
-    }
-  }
-
   componentDidMount() {
     const options = {
       inDuration: 250,

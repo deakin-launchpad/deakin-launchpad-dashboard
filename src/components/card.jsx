@@ -6,39 +6,31 @@ class Card extends Component {
     super(props);
     this.state = {
       modal: false,
-      description: "Hello I'm new card.",
-      title: 'Card Title',
-      link_1: 'Link 1',
-      link_2: 'Link 2',
     }
   }
   
   render() {
-    let status = this.props.data;
+    let status = this.props.modalStatus;
     var statusCheck = () => {
       if(status) {
-        return <Modal />;
+        return <Modal data_modal={this.props.data_modal}/>;
       }
     };
     return (
-      <div>
+      <div className={"card_" + this.props.id}>
         <div className="col s12 m6">
           <div className="card blue-grey darken-1 modal-trigger" data-target="modal1">
             <div className="card-content white-text">
               <span className="card-title">
-                {this.state.title}
+                {this.props.data_card.title}
               </span>
               <p>
-                {this.state.description}
+                {this.props.data_card.description}
               </p>
-            </div>
-            <div className="card-action">
-              <a href="#">{this.state.link_1}</a>
-              <a href="#">{this.state.link_2}</a>
             </div>
           </div>
         </div>
-        {statusCheck()}
+      {statusCheck()}
       </div>
     );
   }

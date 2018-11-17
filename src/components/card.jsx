@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import Modal from 'components/modal.jsx';
 
 class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modal: false,
-    }
-  }
-  
   render() {
     let status = this.props.modalStatus;
     var statusCheck = () => {

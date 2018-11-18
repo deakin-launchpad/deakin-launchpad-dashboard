@@ -8,18 +8,16 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // If isLoggedState is false Modal will not pop-up
+      // If isLoggedIn is false Modal will not pop-up
       // Otherwise Modal OnClick: true state
       isLoggedIn: true,
       modalStatus: false,
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if(this.state.isLoggedIn) {
-      this.setState({ modalStatus: true}, () => {
-          console.log(this.state.modalStatus);
-      }) 
+      this.setState({ modalStatus: true})
     }
   }
 

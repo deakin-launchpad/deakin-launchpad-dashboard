@@ -25,10 +25,10 @@ class Home extends Component {
 
 
   render() {
-    const cardCount = this.state.cardData.length;
+    const cardCount = data.cardData.length;
     let card = [];
     for(let i=0; i < cardCount; i++) {
-      card.push(<Card key={i.toString()} id={i+1} modalStatus={this.state.modalStatus} data_card={this.state.cardData[i]} data_modal={this.state.modalData[i]}/>)      
+      card.push(<Card key={i.toString()} id={i+1} modalStatus={this.state.modalStatus} data_card={data.cardData[i]} data_modal={data.modalData[i]}/>)      
     }
     return (
       <div className="Home">

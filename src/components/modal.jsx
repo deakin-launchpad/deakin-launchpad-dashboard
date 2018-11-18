@@ -16,12 +16,10 @@ class Modal extends Component {
 
   render() {
     return (
-      <div>
-        <div ref={Modal => { this.Modal = Modal; }} id="modal1" className="modal">
-          <div className="modal-content">
-            <h4>{this.props.data_modal.title}</h4>
-            <p>{this.props.data_modal.description}</p>
-          </div>
+      <div ref={Modal => { this.Modal = Modal; }} id={"modal_" + this.props.id} className="modal">
+        <div className="modal-content">
+          <h4>{this.props.data_modal.title}</h4>
+          <p>{this.props.data_modal.description}</p>
         </div>
       </div>
     );

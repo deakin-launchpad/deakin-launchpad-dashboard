@@ -35,7 +35,7 @@ class Home extends Component {
          <Header />
              <header className="App-header">
         </header>
-        <div className="cards">
+        <div className="cards row">
           {card}
         </div>
       </div>

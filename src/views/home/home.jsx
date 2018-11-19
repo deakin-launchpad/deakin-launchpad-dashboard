@@ -33,8 +33,10 @@ class Home extends Component {
          <Header />
              <header className="App-header">
         </header>
-        <div className="cards row">
-          {card}
+        <div className="row center-align">
+          <div className="col m4 s12">
+            {card}
+          </div>
         </div>
       </div>
     );

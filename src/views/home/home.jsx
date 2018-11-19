@@ -17,7 +17,7 @@ class Home extends Component {
 
   componentDidMount() {
     if(this.state.isLoggedIn) {
-      this.setState({ modalStatus: true})
+      this.setState({ modalStatus: !this.state.modalStatus})
     }
   }
 
@@ -26,7 +26,7 @@ class Home extends Component {
     const cardCount = data.cardData.length;
     let card = [];
     for(let i=0; i < cardCount; i++) {
-      card.push(<Card key={i.toString()} id={i+1} modalStatus={this.state.modalStatus} data_card={data.cardData[i]} data_modal={data.modalData[i]}/>)      
+      card.push(<Card key={i.toString()} id={i+1} modalStatus={this.state.modalStatus} data_card={data.cardData[i]}/>)      
     }
     return (
       <div className="Home">

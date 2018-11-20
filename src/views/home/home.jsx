@@ -12,6 +12,7 @@ class Home extends Component {
       // Otherwise Modal OnClick: true state
       isLoggedIn: true,
       modalStatus: false,
+      isAdmin: true,
     };
   }
 
@@ -30,8 +31,8 @@ class Home extends Component {
     }
     return (
       <div className="Home">
-         <Header />
-             <header className="App-header">
+        <Header adminStatus={this.state.isAdmin}/>
+            <header className="App-header">
         </header>
         <div className="row center-align">
           <div className="col m4 s12">

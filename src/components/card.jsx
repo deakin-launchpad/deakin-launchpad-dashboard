@@ -5,14 +5,15 @@ import Octicon, {LogoGithub} from '@githubprimer/octicons-react'
 
 class Card extends Component {
   render() {
+    // if user logged in status will enable modal
     let status = this.props.modalStatus;
     var statusCheck = () => {
       if(status) {
         return (
           <Modal data={this.props.data} id={this.props.id}>
             <div className="modal-footer">
-              <a href="#!" className="modal-close waves-effect waves-light btn"><Octicon icon={LogoGithub}/></a>
-              <a href={this.props.data.url.urlLink} className="modal-close waves-effect waves-light btn">{this.props.data.url.urlName}</a>
+              <a href={this.props.data.urlGit.urlLink} className="modal-close waves-effect waves-light btn"><Octicon icon={LogoGithub}/></a>
+              <a href={this.props.data.urlWebsite.urlLink} className="modal-close waves-effect waves-light btn">{this.props.data.urlWebsite.urlName}</a>
             </div>
           </Modal>
         );

@@ -29,3 +29,10 @@
     transform: rotate(360deg);
   }
 }
+.cardImage{
+  height: 250px;
+}
+
+.card-small{
+  width:250px
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import Modal from 'components/modal.jsx'
+import EditModal from 'components/editProjectModal.jsx'
+import AddModal from 'components/addProjectModal.jsx'
 
 class Header extends Component {
   render() {
@@ -12,14 +13,15 @@ class Header extends Component {
           <div className="nav-wrapper">
             <a href="#!" className="brand-logo">Logo</a>
             <ul className="right hide-on-med-and-down">
-            <li>
               {isAdminCheck(status)}
+            <li>
             </li>
              <li> <Link to='/login'>Logout</Link></li>
             </ul>
           </div>
         </nav>
-        {popModal(status)}
+        {addProjectModal(status)}
+        {editProjectModal(status)}
       </div>
     );
   }
@@ -28,54 +30,38 @@ class Header extends Component {
 var isAdminCheck = (status) => {
   if(status) {
     return (
-        <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_0"}><i className="material-icons">add</i></a>
+      <>
+        <li>
+          <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_edit"}><i className="material-icons">edit</i></a>
+        </li>
+        <li>
+          <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_add"}><i className="material-icons">add</i></a>
+        </li>
+        </>
     )
   }
 }
 
+var editProjectModal = (status) => {
+  if(status) {
+    const modalData = {"title":"Edit Project","description":"Enter Project ID to update."}
+    return (
+      <>
+        <EditModal id="edit" data={modalData}>
+        </EditModal>
+      </>
+    )
+  }
+}
 
-var popModal = (status) => {
+var addProjectModal = (status) => {
   if(status) {
     const modalData = {"title":"New Project","description":"Fill the form."}
     return (
-      <Modal data={modalData} id="0">
-        <div className="row">
-          <form className="input-field col s12">
-            <div className="row">
-              <div className="input-field col s4">
-                <i className="material-icons prefix">label_outline</i>
-                <input id="projectName" type="text" placeholder="Name" className="validate"/>
-                <label htmlFor="ProjectName">Project Name</label>
-              </div>
-              <div className="input-field col s8">
-                <i className="material-icons prefix">email</i>
-                <input id="projectID" type="text" placeholder="Short project description" className="validate"/>
-                <label htmlFor="ProjectID">Project Insights</label>
-              </div>
-              <div className="input-field col s12">
-                <i className="material-icons prefix">mode_edit</i>
-                <textarea id="projectDescription" placeholder="Description of project" className="materialize-textarea"></textarea>
-                <label htmlFor="projectDescription">Project Summary</label>
-              </div>
-              <div className="input-field col s6">
-                <i className="material-icons prefix">link</i>
-                <input id="projectID" type="text" placeholder="Website link" className="validate"/>
-                <label htmlFor="ProjectID">Website URL</label>
-              </div>
-              <div className="input-field col s6">
-                <i className="material-icons prefix">link</i>
-                <input id="projectID" type="text" placeholder="Github link" className="validate"/>
-                <label htmlFor="ProjectID">Git URL</label>
-              </div>
-              <div className="row">
-                <button className="btn waves-effect waves-light" type="submit" name="action">Submit
-                  <i className="material-icons right">send</i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </Modal>
+      <>
+        <AddModal data={modalData} id="add">
+        </AddModal>
+      </>
     )
   }
 }

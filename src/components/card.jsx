@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'components/modal.jsx';
-import cardImage from 'images/deakin-logo.svg'
 import Octicon, {LogoGithub} from '@githubprimer/octicons-react'
-
 class Card extends Component {
   render() {
     // if user logged in status will enable modal
@@ -22,9 +20,9 @@ class Card extends Component {
     };
     
     return (
-        <div className={"card card_"+ this.props.id}>
-          <div className="card-image waves-effect waves-block waves-light">
-            <img className="activator" alt={"cardImage_" + this.props.id} src={cardImage} />
+        <div className={"card card-small card_"+ this.props.data._id}>
+          <div className="card-imagewaves-effect waves-block waves-light">
+            <img className="activator cardImage" alt={"cardImage_" + this.props.data._id} src={'images/' + this.props.data.imageURL} />
           </div>
           <div className="card-content">
             <span className="card-title activator grey-text text-darken-4">{this.props.data.title}<i className="material-icons right">more_vert</i></span>
@@ -33,7 +31,7 @@ class Card extends Component {
             <span className="card-title grey-text text-darken-4">{this.props.data.title}<i className="material-icons right">close</i></span>
             <div className="divider"></div>
             <p>{this.props.data.descriptionShort}</p>
-            <button data-target={"modal_" + this.props.id} className="btn modal-trigger">
+            <button data-target={"modal_" + this.props.data._id} className="btn modal-trigger">
               Long Description
             </button>
           </div>

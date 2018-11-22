@@ -90,7 +90,7 @@ class Modal extends Component {
                 <label htmlFor="githubLink">Git URL</label>
               </div>
               <div className="row">
-                <button className="btn waves-effect waves-light" name="action" onClick={this.submitNewProject}>Submit
+                <button className="btn waves-effect waves-light modal-close" name="action" onClick={this.submitNewProject}>Submit
                   <i className="material-icons right">send</i>
                 </button>
               </div>

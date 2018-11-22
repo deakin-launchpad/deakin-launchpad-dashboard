@@ -20,9 +20,9 @@ class Card extends Component {
     };
     
     return (
-        <div className={"card card-small card_"+ this.props.data._id}>
-          <div className="card-imagewaves-effect waves-block waves-light">
-            <img className="activator cardImage" alt={"cardImage_" + this.props.data._id} src={'images/' + this.props.data.imageURL} />
+        <div className={"card card_"+ this.props.data._id}>
+          <div className="card-image waves-effect waves-block waves-light">
+            <img className="activator" alt={"cardImage_" + this.props.data._id} src={'images/supplyTracker-image.png'} />
           </div>
           <div className="card-content">
             <span className="card-title activator grey-text text-darken-4">{this.props.data.title}<i className="material-icons right">more_vert</i></span>

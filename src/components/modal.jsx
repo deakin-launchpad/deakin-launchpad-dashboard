@@ -16,7 +16,7 @@ class Modal extends Component {
 
   render() {
     return (
-      <div ref={Modal => { this.Modal = Modal; }} id={"modal_" + this.props.data_id} className="modal">
+      <div ref={Modal => { this.Modal = Modal; }} id={"modal_" + this.props.id} className="modal">
         <div className="modal-content">
           <h4>{this.props.data.title}</h4>
           <div className="divider"></div>

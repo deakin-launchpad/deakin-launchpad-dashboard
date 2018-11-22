@@ -11,7 +11,7 @@ class Header extends Component {
       <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
-            <a href="#!" className="brand-logo">Logo</a>
+            <a href="#!" className="brand-logo center">Logo</a>
             <ul className="right hide-on-med-and-down">
               {isAdminCheck(status)}
             <li>

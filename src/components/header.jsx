@@ -2,37 +2,39 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import EditModal from 'components/editProjectModal.jsx'
 import AddModal from 'components/addProjectModal.jsx'
+import SideNav from 'components/sideNav.jsx'
 
 class Header extends Component {
   render() {
     // status is to check whether user is admin or not
-    const status = this.props.adminStatus
+    const adminStatus = this.props.adminStatus
+    const logginStatus = this.props.loginStatus
     return (
       <div className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
             <a href="#!" className="brand-logo center">Logo</a>
+            <a href="#!" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
-              {isAdminCheck(status)}
-            <li>
-            </li>
+              {isAdminCheck(adminStatus, logginStatus)}
              <li> <Link to='/login'>Logout</Link></li>
             </ul>
           </div>
+          <SideNav adminStatus={adminStatus}/>
         </nav>
-        {addProjectModal(status)}
-        {editProjectModal(status)}
+        {addProjectModal(adminStatus, logginStatus)}
+        {editProjectModal(adminStatus,logginStatus)}
       </div>
     );
   }
 }
 
-var isAdminCheck = (status) => {
-  if(status) {
+var isAdminCheck = (adminStatus,logginStatus) => {
+  if(adminStatus && logginStatus) {
     return (
       <>
         <li>
-        <div className="editButton modal-trigger disabled" data-target={"modal_edit"}>
+        <div className="editButton modal-trigger" data-target={"modal_edit"}>
           <a className="btn-floating waves-effect waves-light red"><i className="material-icons">edit</i></a>
           <span id="editProjectText">Edit Project</span>
         </div>
@@ -48,8 +50,8 @@ var isAdminCheck = (status) => {
   }
 }
 
-var editProjectModal = (status) => {
-  if(status) {
+var editProjectModal = (adminStatus, logginStatus) => {
+  if(adminStatus && logginStatus) {
     const modalData = {"title":"Edit Project","description":"Enter Project ID to update."}
     return (
       <>
@@ -60,8 +62,8 @@ var editProjectModal = (status) => {
   }
 }
 
-var addProjectModal = (status) => {
-  if(status) {
+var addProjectModal = (adminStatus, logginStatus) => {
+  if(adminStatus && logginStatus) {
     const modalData = {"title":"New Project","description":"Fill the form."}
     return (
       <>

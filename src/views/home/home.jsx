@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from 'images/deakin-logo.svg'
 import Header from 'components/header.jsx'
 import Card from 'components/card.jsx';
-import data from 'helpers/testData.json';
+import axios from 'axios';
 
 class Home extends Component {
   constructor(props) {
@@ -13,32 +13,40 @@ class Home extends Component {
       isLoggedIn: true,
       modalStatus: false,
       isAdmin: true,
+      cards: [],
     };
+  }
+
+  getProjects(){
+    axios.get('').then(data=>{
+      let cards=data.data.map((card)=>{
+        return (
+          <Card key={card._id} id={card._id} modalStatus={this.state.modalStatus} data={card.data}/>
+        )
+      })
+      this.setState({cards:cards})
+    })
   }
 
   componentDidMount() {
     if(this.state.isLoggedIn) {
       this.setState({ modalStatus: !this.state.modalStatus})
     }
+    this.getProjects()
   }
 
 
   render() {
-    const cardCount = data.cardData.length;
-    let card = [];
-    for(let i=0; i < cardCount; i++) {
-      card.push(<Card key={i.toString()} id={i+1} modalStatus={this.state.modalStatus} data={data.cardData[i]}/>)      
-    }
     return (
       <div className="Home">
         <Header adminStatus={this.state.isAdmin}/>
             <header className="App-header">
         </header>
-        <div className="row center-align">
-          <div className="col m4 s12">
-            {card}
+          <div className="row center-cols center-align">
+            <div className="col m4">
+            {this.state.cards}
+            </div>
           </div>
-        </div>
       </div>
     );
   }

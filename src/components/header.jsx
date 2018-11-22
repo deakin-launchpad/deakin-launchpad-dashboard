@@ -32,10 +32,16 @@ var isAdminCheck = (status) => {
     return (
       <>
         <li>
-          <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_edit"}><i className="material-icons">edit</i></a>
+        <div className="editButton modal-trigger disabled" data-target={"modal_edit"}>
+          <a className="btn-floating waves-effect waves-light red"><i className="material-icons">edit</i></a>
+          <span id="editProjectText">Edit Project</span>
+        </div>
         </li>
         <li>
-          <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_add"}><i className="material-icons">add</i></a>
+          <div className="addButton modal-trigger">
+            <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_add"}><i className="material-icons">add</i></a>
+            <span id="addProjectText">Add Project</span>
+          </div> 
         </li>
         </>
     )

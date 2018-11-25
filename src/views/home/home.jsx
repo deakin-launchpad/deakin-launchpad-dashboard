@@ -18,7 +18,7 @@ class Home extends Component {
   }
 
   getProjects(){
-    axios.get('').then(data=>{
+    axios.get('https://launchpad-red.au-syd.mybluemix.net/api/dashboard/projects').then(data=>{
       let cards=data.data.map((card)=>{
         return (
           <Card key={card._id} id={card._id} modalStatus={this.state.modalStatus} data={card.data}/>

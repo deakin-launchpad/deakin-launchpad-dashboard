@@ -20,6 +20,7 @@ class Card extends Component {
     };
     
     return (
+      <div className="col m4">
         <div className={"card card_"+ this.props.id}>
           <div className="card-image waves-effect waves-block waves-light">
             <img className="activator" alt={"cardImage_" + this.props.id} src={'images/supplyTracker-image.png'} />
@@ -36,6 +37,7 @@ class Card extends Component {
             </button>
           </div>
           {statusCheck()}
+        </div>
         </div>
     );
   }

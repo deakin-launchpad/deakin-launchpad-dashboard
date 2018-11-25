@@ -29,6 +29,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
+    document.title = "Deakin Launchpad"
     if(this.state.isLoggedIn) {
       this.setState({ modalStatus: !this.state.modalStatus})
     }
@@ -39,13 +40,11 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <Header adminStatus={this.state.isAdmin}/>
+        <Header adminStatus={this.state.isAdmin} loginStatus={this.state.isLoggedIn}/>
             <header className="App-header">
         </header>
           <div className="row center-cols center-align">
-            <div className="col m4">
             {this.state.cards}
-            </div>
           </div>
       </div>
     );

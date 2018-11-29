@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import EditModal from 'components/editProjectModal.jsx'
 import AddModal from 'components/addProjectModal.jsx'
-import SideNav from 'components/sideNav.jsx'
 
 class Header extends Component {
   render() {
@@ -14,13 +13,11 @@ class Header extends Component {
         <nav>
           <div className="nav-wrapper">
             <a href="#!" className="brand-logo center">Logo</a>
-            <a href="#!" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
             <ul className="right hide-on-med-and-down">
               {isAdminCheck(adminStatus, logginStatus)}
              <li> <Link to='/login'>Logout</Link></li>
             </ul>
           </div>
-          <SideNav adminStatus={adminStatus}/>
         </nav>
         {addProjectModal(adminStatus, logginStatus)}
         {editProjectModal(adminStatus,logginStatus)}

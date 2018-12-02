@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'components/modal.jsx';
-import Octicon, {LogoGithub} from '@githubprimer/octicons-react'
+import Octicon, {MarkGithub} from '@githubprimer/octicons-react'
 class Card extends Component {
   render() {
     // if user logged in status will enable modal
@@ -10,7 +10,7 @@ class Card extends Component {
         return (
           <Modal data={this.props.data} id={this.props.id}>
             <div className="modal-footer">
-              <a href={this.props.data.urlGit.urlLink} className="modal-close waves-effect waves-light btn"><Octicon icon={LogoGithub}/></a>
+              <a href={this.props.data.urlGit.urlLink} className="modal-close waves-effect waves-light btn"><Octicon icon={MarkGithub}/></a>
               <a href={this.props.data.urlWebsite.urlLink} className="modal-close waves-effect waves-light btn">{this.props.data.urlWebsite.urlName}</a>
             </div>
           </Modal>
@@ -32,9 +32,11 @@ class Card extends Component {
             <span className="card-title grey-text text-darken-4">{this.props.data.title}<i className="material-icons right">close</i></span>
             <div className="divider"></div>
             <p>{this.props.data.descriptionShort}</p>
-            <button data-target={"modal_" + this.props.id} className="btn modal-trigger">
-              Long Description
-            </button>
+            <div className="center">
+              <button data-target={"modal_" + this.props.id} className="btn modal-trigger">
+                Long Description
+              </button>
+            </div>
           </div>
           {statusCheck()}
         </div>

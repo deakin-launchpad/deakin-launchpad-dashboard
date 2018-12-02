@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Modal from 'components/modal.jsx';
-import Octicon, {MarkGithub} from '@githubprimer/octicons-react'
 class Card extends Component {
   render() {
     // if user logged in status will enable modal
@@ -10,7 +9,7 @@ class Card extends Component {
         return (
           <Modal data={this.props.data} id={this.props.id}>
             <div className="modal-footer">
-              <a href={this.props.data.urlGit.urlLink} className="modal-close waves-effect waves-light btn"><Octicon icon={MarkGithub}/></a>
+              <a href={this.props.data.urlGit.urlLink} className="modal-close waves-effect waves-light btn"> Git Button</a>
               <a href={this.props.data.urlWebsite.urlLink} className="modal-close waves-effect waves-light btn">{this.props.data.urlWebsite.urlName}</a>
             </div>
           </Modal>

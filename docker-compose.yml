@@ -2,10 +2,10 @@ version: "2"
 services:
   app:
     container_name: deakinlaunchpad-dashboard
-    image: deakinlaunchpad/deakinlaunchpad-dashboard-dev
+    image: deakinlaunchpad/deakinlaunchpad-dashboard
     restart: always
 
     command: bash -c "npm start"
     ports:
-      - "80:80"
+      - "5000:5000"
     

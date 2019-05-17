@@ -10,8 +10,9 @@ class Modal extends Component {
       description: '',
       descriptionShort: '',
       urlWebsite: '',
-      urlGit: '',
-      imageURL: 'default'
+      urlScrollStory: '',
+      imageURL: '',
+      urlDashboardURL:''
     }
   }
   componentDidMount() {
@@ -27,24 +28,31 @@ class Modal extends Component {
   }
 
   handleNameChange = (event) => {
-    this.setState({title: event.target.value})
+    console.log('[NAME]',event.target.value)
+    this.setState({ title: event.target.value })
   }
   handleDescriptionChange = (event) => {
-    this.setState({description: event.target.value})
+    this.setState({ description: event.target.value })
   }
   handleShortDescriptionChange = (event) => {
-    this.setState({descriptionShort: event.target.value})
+    this.setState({ descriptionShort: event.target.value })
   }
   handleWebsiteLinkChange = (event) => {
-    this.setState({urlWebsite:{urlName: "Website URL",urlLink:event.target.value} })
+    this.setState({ urlWebsite: event.target.value})
   }
-  handleurlGitChange = (event) => {
-    this.setState({urlGit:{urlName:"GIT URL",urlLink:event.target.value}})
+  handleScrollStoryURL = (event) => {
+    this.setState({ urlScrollStory: event.target.value })
   }
-  
+  handleimgURL = (event) => {
+    console.log('[IMAGE URL]',event.target.value)
+    this.setState({ imageURL: event.target.value})
+  }
+  handleDashboardURL = (event) => {
+    this.setState({ urlDashboardURL: event.target.value })
+  }
 
-  submitNewProject=()=>{
-    console.log(this.state)
+  submitNewProject = () => {
+    console.log('STATE',this.state)
     axios.post('https://launchpad-red.au-syd.mybluemix.net/api/dashboard/projects', {
       data: this.state
     });
@@ -83,8 +91,18 @@ class Modal extends Component {
               </div>
               <div className="input-field col s6">
                 <i className="material-icons prefix">link</i>
-                <input value={this.state.gitLink} id="projectGitLink" type="text" placeholder="Github link" className="validate" onChange={this.handleurlGitChange} required="required" />
-                <label htmlFor="githubLink">Git URL</label>
+                <input value={this.state.urlScrollStory} id="projectScrollStoryLink" type="text" placeholder="Template link" className="validate" onChange={this.handleScrollStoryURL} required="required" />
+                <label htmlFor="projectScrollStoryLink">Scroll Story URL</label>
+              </div>
+              <div className="input-field col s12">
+                <i className="material-icons prefix">image</i>
+                <input value={this.state.value} id="imgURL" type="text" placeholder="image" className="validate" onChange={this.handleimgURL} required="required" />
+                <label htmlFor="imgURL">Image Url</label>
+              </div>
+              <div className="input-field col s12">
+                <i className="material-icons prefix">dashboard</i>
+                <input value={this.state.value} id="dashboardURL" type="text" placeholder="image" className="validate" onChange={this.handleDashboardURL} required="required" />
+                <label htmlFor="dashboardURL">Dashboard Url</label>
               </div>
               <div className="row">
                 <button className="btn waves-effect waves-light modal-close" onClick={this.submitNewProject} name="action">Submit

@@ -11,7 +11,7 @@ class Login extends Component {
         <div className='row'>
           <Link to='/home'><a class="waves-effect waves-light btn">
       
-          <i class="material-icons left">cloud</i>Login
+          <i className="material-icons left">cloud</i>Login
         </a></Link>
 
         </div>

@@ -17,21 +17,21 @@ class Home extends Component {
     };
   }
 
-  getProjects(){
-    axios.get('https://launchpad-red.au-syd.mybluemix.net/api/dashboard/projects').then(data=>{
-      let cards=data.data.map((card)=>{
+  getProjects() {
+    axios.get('https://launchpad-red.au-syd.mybluemix.net/api/dashboard/projects').then(data => {
+      let cards = data.data.map((card) => {
         return (
-          <Card key={card._id} id={card._id} modalStatus={this.state.modalStatus} data={card.data}/>
+          <Card key={card._id} id={card._id} modalStatus={this.state.modalStatus} data={card.data} />
         )
       })
-      this.setState({cards:cards})
+      this.setState({ cards: cards })
     })
   }
 
   componentDidMount() {
     document.title = "Deakin Launchpad"
-    if(this.state.isLoggedIn) {
-      this.setState({ modalStatus: !this.state.modalStatus})
+    if (this.state.isLoggedIn) {
+      this.setState({ modalStatus: !this.state.modalStatus })
     }
     this.getProjects()
   }
@@ -40,12 +40,10 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <Header adminStatus={this.state.isAdmin} loginStatus={this.state.isLoggedIn}/>
-            <header className="App-header">
-        </header>
-          <div className="row center-cols center-align">
-            {this.state.cards}
-          </div>
+        <Header adminStatus={this.state.isAdmin} loginStatus={this.state.isLoggedIn} />
+        <div className="row center-cols center-align">
+          {this.state.cards}
+        </div>
       </div>
     );
   }

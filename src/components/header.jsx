@@ -11,11 +11,11 @@ class Header extends Component {
     return (
       <div className="navbar-fixed">
         <nav>
-          <div className="nav-wrapper">
+          <div className="nav-wrapper App-header ">
             <a href="#!" className="brand-logo center">Logo</a>
             <ul className="right hide-on-med-and-down">
               {isAdminCheck(adminStatus, logginStatus)}
-             <li> <Link to='/login'>Logout</Link></li>
+             <li> <Link className="btn" to='/login'>Logout</Link></li>
             </ul>
           </div>
         </nav>
@@ -33,13 +33,11 @@ var isAdminCheck = (adminStatus,logginStatus) => {
         <li>
         <div className="editButton modal-trigger" data-target={"modal_edit"}>
           <a className="btn-floating waves-effect waves-light red"><i className="material-icons">edit</i></a>
-          <span id="editProjectText">Edit Project</span>
         </div>
         </li>
         <li>
           <div className="addButton modal-trigger">
             <a className="btn-floating waves-effect waves-light red modal-trigger" data-target={"modal_add"}><i className="material-icons">add</i></a>
-            <span id="addProjectText">Add Project</span>
           </div> 
         </li>
         </>
